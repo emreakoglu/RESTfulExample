@@ -1,5 +1,7 @@
 package com.mkyong.client;
 
+import org.codehaus.jettison.json.JSONObject;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -26,7 +28,7 @@ public class JerseyClientPost {
 			}
 
 			System.out.println("Output from Server .... \n");
-			String output = response.getEntity(String.class);
+			JSONObject output = response.getEntity(JSONObject.class);
 			System.out.println(output);
 
 		} catch (Exception e) {

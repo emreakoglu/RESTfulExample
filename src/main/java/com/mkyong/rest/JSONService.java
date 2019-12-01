@@ -8,6 +8,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
 import com.mkyong.Track;
 
 @Path("/json/metallica")
@@ -32,7 +35,17 @@ public class JSONService {
 	public Response createTrackInJSON(Track track) {
 
 		String result = "Track saved : " + track;
-		return Response.status(201).entity(result).build();
+		
+		JSONObject jsonObject = new JSONObject();
+		
+		try {
+			jsonObject.append("emre", "Passw0rd");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return Response.status(201).entity(jsonObject).build();
 		
 	}
 	
